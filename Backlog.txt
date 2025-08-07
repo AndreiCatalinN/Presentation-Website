@@ -1,7 +1,0 @@
-- https://pages.github.com/ 
-
-- dark mode?
-- move to react?
-- add seo
-- projects section
-- search and see if I can save the entire website in user cookies or something like that
