@@ -131,9 +131,8 @@ footer {
     clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
 }
 
-.return_home {
+#return_home {
     background-color: #52e0c4;
-    transform: scale(1.1);
     padding: 10px ;
 }
 
