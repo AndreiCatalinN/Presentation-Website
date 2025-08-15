@@ -3,10 +3,10 @@ const CACHE_NAME = `static-cache-v${CACHE_VERSION}`;
 
 const STATIC_ASSETS = [
   '/',
-  '/index.html',
-  '/style.css',
-  '/404.html',
-  '/service-worker.js',
+  './index.html',
+  './style.css',
+  './404.html',
+  './service-worker.js',
 ];
 
 function sendMessageToClient(clientId, msg) {
