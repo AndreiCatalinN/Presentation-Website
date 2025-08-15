@@ -110,12 +110,44 @@
     <footer class="section-divider"> </footer>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-            .then(reg => console.log('Service Worker registered!', reg))
-            .catch(err => console.error('Service Worker registration failed:', err));
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('SW registered!', reg))
+        .catch(err => console.error('SW registration failed:', err));
+
+        // Listen for messages from the service worker
+        navigator.serviceWorker.addEventListener('message', event => {
+        if (event.data.type === 'CACHE_HIT') {
+            showToast(`Served from cache: ${new URL(event.data.url).pathname}`);
         }
+        });
+    }
+
+    // Toast logic
+    function showToast(message) {
+        // Create toast container if it doesn't exist
+        let container = document.querySelector('.toast-container');
+        if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+        }
+
+        // Create new toast
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        container.appendChild(toast);
+
+        // Auto-remove after 3 seconds
+        setTimeout(() => {
+        toast.classList.add('hide');
+        toast.addEventListener('transitionend', () => toast.remove());
+        }, 3000);
+    }
     </script>
+
 <!-- 
 
 Backlog:
