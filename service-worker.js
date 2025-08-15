@@ -6,7 +6,7 @@ const STATIC_ASSETS = [
   './index.html',
   './style.css',
   './404.html',
-  './service-worker.js',
+  './Presentation-Website/service-worker.js',
 ];
 
 function sendMessageToClient(clientId, msg) {
